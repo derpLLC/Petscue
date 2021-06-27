@@ -57,21 +57,66 @@ class _LoginState extends State<Login> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text("Login"),
-                        style: TextButton.styleFrom(),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40.0,
+                          width: 100.0,
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.pink,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         width: 5.0,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
+                      InkWell(
+                        onTap: () {
                           Navigator.pushNamed(context, MyRoutes.homeRoute);
                         },
-                        child: Text("Skip"),
-                        style: TextButton.styleFrom(),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40.0,
+                          width: 100.0,
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.pink,
+                              borderRadius: BorderRadius.circular(8.0)),
+                        ),
                       ),
+                      // ElevatedButton(
+                      //   onPressed: () {},
+                      //   child: Text("Login"),
+                      //   style: TextButton.styleFrom(),
+                      // ),
+                      // SizedBox(
+                      //   width: 5.0,
+                      // ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      //   },
+                      //   child: Text("Skip"),
+                      //   style: TextButton.styleFrom(),
+                      // ),
                     ],
                   ),
                 ],
