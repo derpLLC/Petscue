@@ -15,13 +15,19 @@ class Login extends StatelessWidget {
               "assets/images/login_screen_image.jpg",
               fit: BoxFit.cover,
             ),
+            SizedBox(
+              height: 20.0,
+            ),
             Text(
               "Welcome",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24.0,
-              )
-            )
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
           ],
         ),
       ),
