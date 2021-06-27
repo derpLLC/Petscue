@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: ThemeData(
         fontFamily: GoogleFonts.montserrat().fontFamily,
+        primarySwatch: Colors.pink,
       ),
       initialRoute: MyRoutes.loginRoute,
       routes: {
