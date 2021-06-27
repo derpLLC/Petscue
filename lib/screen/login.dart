@@ -102,21 +102,6 @@ class _LoginState extends State<Login> {
                               borderRadius: BorderRadius.circular(8.0)),
                         ),
                       ),
-                      // ElevatedButton(
-                      //   onPressed: () {},
-                      //   child: Text("Login"),
-                      //   style: TextButton.styleFrom(),
-                      // ),
-                      // SizedBox(
-                      //   width: 5.0,
-                      // ),
-                      // ElevatedButton(
-                      //   onPressed: () {
-                      //     Navigator.pushNamed(context, MyRoutes.homeRoute);
-                      //   },
-                      //   child: Text("Skip"),
-                      //   style: TextButton.styleFrom(),
-                      // ),
                     ],
                   ),
                 ],
