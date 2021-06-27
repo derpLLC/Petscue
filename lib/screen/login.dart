@@ -47,6 +47,14 @@ class Login extends StatelessWidget {
                     child: Text("Login"),
                     style: TextButton.styleFrom(),
                   ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Skip"),
+                    style: TextButton.styleFrom(),
+                  ),
                 ],
               ),
             ),
