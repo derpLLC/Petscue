@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:petshop/utils/routes.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -54,7 +55,9 @@ class Login extends StatelessWidget {
                         width: 5.0,
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                        },
                         child: Text("Skip"),
                         style: TextButton.styleFrom(),
                       ),
