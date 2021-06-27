@@ -51,7 +51,7 @@ class Login extends StatelessWidget {
                         style: TextButton.styleFrom(),
                       ),
                       SizedBox(
-                        height: 5.0,
+                        width: 5.0,
                       ),
                       ElevatedButton(
                         onPressed: () {},
