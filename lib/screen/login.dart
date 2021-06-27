@@ -2,7 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:petshop/utils/routes.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  String name = "";
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -22,7 +29,7 @@ class Login extends StatelessWidget {
                     height: 20.0,
                   ),
                   Text(
-                    "Welcome",
+                    "Welcome $name",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30.0,
@@ -34,6 +41,10 @@ class Login extends StatelessWidget {
                   TextFormField(
                     decoration: InputDecoration(
                         hintText: 'Enter the username', labelText: 'Username'),
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
