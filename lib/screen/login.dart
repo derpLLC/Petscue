@@ -14,7 +14,7 @@ class Login extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      "assets/images/login_screen_image.jpg",
+                      "assets/images/login.png",
                       fit: BoxFit.cover,
                     ),
                     SizedBox(
