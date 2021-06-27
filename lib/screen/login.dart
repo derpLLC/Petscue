@@ -42,18 +42,23 @@ class Login extends StatelessWidget {
                   SizedBox(
                     height: 20.0,
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Login"),
-                    style: TextButton.styleFrom(),
-                  ),
-                  SizedBox(
-                    height: 5.0,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Skip"),
-                    style: TextButton.styleFrom(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text("Login"),
+                        style: TextButton.styleFrom(),
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text("Skip"),
+                        style: TextButton.styleFrom(),
+                      ),
+                    ],
                   ),
                 ],
               ),
