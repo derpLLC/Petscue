@@ -36,6 +36,7 @@ class Login extends StatelessWidget {
                           labelText: 'Username'),
                     ),
                     TextFormField(
+                      obscureText: true,
                       decoration: InputDecoration(
                           hintText: 'Enter the password',
                           labelText: 'Password'),
