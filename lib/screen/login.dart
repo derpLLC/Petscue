@@ -62,7 +62,7 @@ class _LoginState extends State<Login> {
                     height: 20.0,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       ElevatedButton(
                         onPressed: () {
@@ -92,6 +92,34 @@ class _LoginState extends State<Login> {
                       SizedBox(
                         width: 5.0,
                       ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, MyRoutes.signUpRoute);
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40.0,
+                          width: 100.0,
+                          child: Text(
+                            'Signup',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.pink,
+                              borderRadius: BorderRadius.circular(8.0)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 150,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
                       ElevatedButton(
                         onPressed: () {
                           Navigator.pushNamed(context, MyRoutes.homeRoute);
