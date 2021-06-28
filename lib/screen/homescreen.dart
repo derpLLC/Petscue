@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:petshop/utils/fire_auth.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -26,12 +28,14 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () => {print("Profile")},
+                    onPressed: () {
+                      context.read<FireAuth>().signOut();
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Weasel',
+                          'Sign Out',
                           style: TextStyle(color: Colors.black),
                         ),
                         Container(

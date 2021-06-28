@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:petshop/utils/fire_auth.dart';
 import 'package:petshop/utils/routes.dart';
+import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -9,6 +11,9 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   String name = "";
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +44,7 @@ class _LoginState extends State<Login> {
                     height: 20.0,
                   ),
                   TextFormField(
+                    controller: emailController,
                     decoration: InputDecoration(
                         hintText: 'Enter the username', labelText: 'Username'),
                     onChanged: (value) {
@@ -47,6 +53,7 @@ class _LoginState extends State<Login> {
                     },
                   ),
                   TextFormField(
+                    controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
                         hintText: 'Enter the password', labelText: 'Password'),
@@ -57,9 +64,12 @@ class _LoginState extends State<Login> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      ElevatedButton(
+                        onPressed: () {
+                          context.read<FireAuth>().signIn(
+                                email: emailController.text.trim(),
+                                password: passwordController.text.trim(),
+                              );
                         },
                         child: Container(
                           alignment: Alignment.center,
@@ -82,8 +92,8 @@ class _LoginState extends State<Login> {
                       SizedBox(
                         width: 5.0,
                       ),
-                      InkWell(
-                        onTap: () {
+                      ElevatedButton(
+                        onPressed: () {
                           Navigator.pushNamed(context, MyRoutes.homeRoute);
                         },
                         child: Container(
