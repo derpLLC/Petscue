@@ -54,7 +54,8 @@ class _SignUpState extends State<SignUp> {
                 height: 20.0,
               ),
               InkWell(
-                onTap: () {
+                onTap: () async {
+                  await Future.delayed(Duration(seconds: 1));
                   Navigator.pushNamed(context, MyRoutes.loginRoute);
                 },
                 child: Container(

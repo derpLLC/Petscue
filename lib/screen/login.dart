@@ -65,13 +65,15 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       InkWell(
-                        onTap: () {
+                        onTap: () async {
+                          await Future.delayed(Duration(seconds: 1));
                           context.read<FireAuth>().signIn(
                                 email: emailController.text.trim(),
                                 password: passwordController.text.trim(),
                               );
                         },
-                        child: Container(
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
                           alignment: Alignment.center,
                           height: 40.0,
                           width: 100.0,
@@ -93,10 +95,12 @@ class _LoginState extends State<Login> {
                         width: 5.0,
                       ),
                       InkWell(
-                        onTap: () {
+                        onTap: () async {
+                          await Future.delayed((Duration(seconds: 1)));
                           Navigator.pushNamed(context, MyRoutes.signUpRoute);
                         },
-                        child: Container(
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
                           alignment: Alignment.center,
                           height: 40.0,
                           width: 100.0,
@@ -121,7 +125,8 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       InkWell(
-                        onTap: () {
+                        onTap: () async {
+                          await Future.delayed(Duration(seconds: 1));
                           Navigator.pushNamed(context, MyRoutes.homeRoute);
                         },
                         child: Container(
