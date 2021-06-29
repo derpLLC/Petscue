@@ -112,7 +112,7 @@ class _LoginState extends State<Login> {
                             changeButton = true;
                           });
                           await Future.delayed((Duration(seconds: 1)));
-                          Navigator.pushNamed(context, MyRoutes.signUpRoute);
+                          await Navigator.pushNamed(context, MyRoutes.signUpRoute);
                           setState(() {
                             changeButton = false;
                           });
@@ -153,7 +153,7 @@ class _LoginState extends State<Login> {
                             changeButton = true;
                           });
                           await Future.delayed(Duration(seconds: 1));
-                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                          await Navigator.pushNamed(context, MyRoutes.homeRoute);
                           setState(() {
                             changeButton = false;
                           });
