@@ -13,54 +13,69 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Material(
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.asset(
-              "assets/images/signup.png",
-              fit: BoxFit.cover,
-            ),
-            Text(
-              "Welcome",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30.0,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 36),
+          child: Column(
+            children: [
+              Image.asset(
+                "assets/images/signup.png",
+                fit: BoxFit.cover,
               ),
-            ),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Enter the username',
-                labelText: 'Username',
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            TextFormField(
-              obscureText: true,
-              decoration: InputDecoration(
-                hintText: 'Enter the password',
-                labelText: 'Password',
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, MyRoutes.loginRoute);
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 40.0,
-                width: 100.0,
-                child: Text(
-                  'Signup',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+              Text(
+                "Welcome",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30.0,
                 ),
-                decoration: BoxDecoration(
-                    color: Colors.pink,
-                    borderRadius: BorderRadius.circular(8.0)),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 20.0,
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Enter the username',
+                  labelText: 'Username',
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: 'Enter the password',
+                  labelText: 'Password',
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, MyRoutes.loginRoute);
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 40.0,
+                  width: 100.0,
+                  child: Text(
+                    'Signup',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.pink,
+                      borderRadius: BorderRadius.circular(8.0)),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
