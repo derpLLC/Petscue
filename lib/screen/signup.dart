@@ -25,6 +25,19 @@ class _SignUpState extends State<SignUp> {
                 fontSize: 30.0,
               ),
             ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Enter the username',
+                labelText: 'Username',
+              ),
+            ),
+            TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: 'Enter the password',
+                labelText: 'Password',
+              ),
+            )
           ],
         ),
       ),
