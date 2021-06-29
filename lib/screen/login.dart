@@ -64,8 +64,8 @@ class _LoginState extends State<Login> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
+                      InkWell(
+                        onTap: () {
                           context.read<FireAuth>().signIn(
                                 email: emailController.text.trim(),
                                 password: passwordController.text.trim(),
@@ -92,8 +92,8 @@ class _LoginState extends State<Login> {
                       SizedBox(
                         width: 5.0,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
+                      InkWell(
+                        onTap: () {
                           Navigator.pushNamed(context, MyRoutes.signUpRoute);
                         },
                         child: Container(
@@ -120,8 +120,8 @@ class _LoginState extends State<Login> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
+                      InkWell(
+                        onTap: () {
                           Navigator.pushNamed(context, MyRoutes.homeRoute);
                         },
                         child: Container(
