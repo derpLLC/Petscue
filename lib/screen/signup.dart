@@ -9,6 +9,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  bool changeButton = false;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -55,24 +57,36 @@ class _SignUpState extends State<SignUp> {
               ),
               InkWell(
                 onTap: () async {
+                  setState(() {
+                    changeButton = true;
+                  });
                   await Future.delayed(Duration(seconds: 1));
                   Navigator.pushNamed(context, MyRoutes.loginRoute);
+                  setState(() {
+                    changeButton = false;
+                  });
                 },
-                child: Container(
+                child: AnimatedContainer(
+                  duration: Duration(seconds: 1),
                   alignment: Alignment.center,
                   height: 40.0,
-                  width: 100.0,
-                  child: Text(
-                    'Signup',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  width: changeButton ? 50 : 100.0,
+                  child: changeButton
+                      ? Icon(
+                          Icons.done,
+                          color: Colors.white,
+                        )
+                      : Text(
+                          'Signup',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                   decoration: BoxDecoration(
                       color: Colors.pink,
-                      borderRadius: BorderRadius.circular(8.0)),
+                      borderRadius: BorderRadius.circular(changeButton? 50 : 8.0)),
                 ),
               ),
             ],
