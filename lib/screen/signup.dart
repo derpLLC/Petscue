@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petshop/utils/routes.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -37,7 +38,28 @@ class _SignUpState extends State<SignUp> {
                 hintText: 'Enter the password',
                 labelText: 'Password',
               ),
-            )
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.loginRoute);
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 40.0,
+                width: 100.0,
+                child: Text(
+                  'Signup',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.pink,
+                    borderRadius: BorderRadius.circular(8.0)),
+              ),
+            ),
           ],
         ),
       ),
