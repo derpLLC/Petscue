@@ -115,7 +115,7 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                   SizedBox(
-                    height: 150,
+                    height: 100.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
