@@ -15,7 +15,7 @@ class _SignUpState extends State<SignUp> {
         child: Column(
           children: [
             Image.asset(
-              "assets/images/login.png",
+              "assets/images/signup.png",
               fit: BoxFit.cover,
             ),
             Text(
