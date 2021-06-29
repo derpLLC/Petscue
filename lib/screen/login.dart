@@ -11,6 +11,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   String name = "";
+  bool changeButton = false;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -66,28 +67,39 @@ class _LoginState extends State<Login> {
                     children: [
                       InkWell(
                         onTap: () async {
-                          await Future.delayed(Duration(seconds: 1));
+                          setState(() {
+                            changeButton = true;
+                          });
                           context.read<FireAuth>().signIn(
                                 email: emailController.text.trim(),
                                 password: passwordController.text.trim(),
                               );
+                          await Future.delayed((Duration(seconds: 1)));
+                          setState(() {
+                            changeButton = false;
+                          });
                         },
                         child: AnimatedContainer(
                           duration: Duration(seconds: 1),
                           alignment: Alignment.center,
                           height: 40.0,
-                          width: 100.0,
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          width: changeButton ? 50 : 100,
+                          child: changeButton
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                           decoration: BoxDecoration(
                             color: Colors.pink,
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(changeButton? 50: 8.0),
                           ),
                         ),
                       ),
@@ -96,24 +108,35 @@ class _LoginState extends State<Login> {
                       ),
                       InkWell(
                         onTap: () async {
+                          setState(() {
+                            changeButton = true;
+                          });
                           await Future.delayed((Duration(seconds: 1)));
                           Navigator.pushNamed(context, MyRoutes.signUpRoute);
+                          setState(() {
+                            changeButton = false;
+                          });
                         },
                         child: AnimatedContainer(
                           duration: Duration(seconds: 1),
                           alignment: Alignment.center,
                           height: 40.0,
-                          width: 100.0,
-                          child: Text(
-                            'Signup',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          width: changeButton ? 50 : 100,
+                          child: changeButton
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : Text(
+                                  'Signup',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
                           decoration: BoxDecoration(
                               color: Colors.pink,
-                              borderRadius: BorderRadius.circular(8.0)),
+                              borderRadius: BorderRadius.circular(changeButton? 50: 8.0)),
                         ),
                       ),
                     ],
@@ -126,23 +149,31 @@ class _LoginState extends State<Login> {
                     children: [
                       InkWell(
                         onTap: () async {
+                          setState(() {
+                            changeButton = true;
+                          });
                           await Future.delayed(Duration(seconds: 1));
                           Navigator.pushNamed(context, MyRoutes.homeRoute);
+                          setState(() {
+                            changeButton = false;
+                          });
                         },
                         child: Container(
                           alignment: Alignment.center,
                           height: 40.0,
-                          width: 100.0,
-                          child: Text(
-                            'Skip',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          width: changeButton ? 50.0 : 100.0,
+                          child: changeButton
+                              ? Icon(Icons.done, color: Colors.white,)
+                              : Text(
+                                  'Skip',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
                           decoration: BoxDecoration(
                               color: Colors.pink,
-                              borderRadius: BorderRadius.circular(8.0)),
+                              borderRadius: BorderRadius.circular(changeButton? 50: 8.0)),
                         ),
                       ),
                     ],
