@@ -13,8 +13,11 @@ class _LoginState extends State<Login> {
   String name = "";
   bool changeButton = false;
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  String? _usernameError;
+  String? _passwordError;
 
   @override
   Widget build(BuildContext context) {
@@ -45,19 +48,23 @@ class _LoginState extends State<Login> {
                     height: 20.0,
                   ),
                   TextFormField(
-                    controller: emailController,
+                    controller: _emailController,
                     decoration: InputDecoration(
-                        hintText: 'Enter the username', labelText: 'Username'),
+                        hintText: 'Enter the username',
+                        labelText: 'Username',
+                        errorText: _usernameError),
                     onChanged: (value) {
                       name = value;
                       setState(() {});
                     },
                   ),
                   TextFormField(
-                    controller: passwordController,
+                    controller: _passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
-                        hintText: 'Enter the password', labelText: 'Password'),
+                        hintText: 'Enter the password',
+                        labelText: 'Password',
+                        errorText: _passwordError),
                   ),
                   SizedBox(
                     height: 20.0,
@@ -70,11 +77,34 @@ class _LoginState extends State<Login> {
                           setState(() {
                             changeButton = true;
                           });
-                          context.read<FireAuth>().signIn(
-                                email: emailController.text.trim(),
-                                password: passwordController.text.trim(),
-                              );
-                          await Future.delayed((Duration(seconds: 1)));
+                          if (_emailController.text.isEmpty &&
+                              _passwordController.text.isEmpty) {
+                            setState(() {
+                              _usernameError = 'Username cannot be empty.';
+                              _passwordError = 'Password cannot be empty';
+                            });
+                          } else if (_emailController.text.isEmpty) {
+                            setState(() {
+                              _usernameError = 'Username cannot be empty.';
+                            });
+                          } else if (_passwordController.text.isEmpty) {
+                            setState(() {
+                              _passwordError = 'Password cannot be empty.';
+                            });
+                          } else {
+                            setState(() {
+                              _usernameError = '';
+                              _passwordError = '';
+                            });
+                            context.read<FireAuth>().signIn(
+                                  email: _emailController.text.trim(),
+                                  password: _passwordController.text.trim(),
+                                );
+                            await Future.delayed((Duration(seconds: 1)));
+                            setState(() {
+                              changeButton = false;
+                            });
+                          }
                           setState(() {
                             changeButton = false;
                           });
@@ -99,7 +129,8 @@ class _LoginState extends State<Login> {
                                 ),
                           decoration: BoxDecoration(
                             color: Colors.pink,
-                            borderRadius: BorderRadius.circular(changeButton? 50: 8.0),
+                            borderRadius:
+                                BorderRadius.circular(changeButton ? 50 : 8.0),
                           ),
                         ),
                       ),
@@ -112,7 +143,8 @@ class _LoginState extends State<Login> {
                             changeButton = true;
                           });
                           await Future.delayed((Duration(seconds: 1)));
-                          await Navigator.pushNamed(context, MyRoutes.signUpRoute);
+                          await Navigator.pushNamed(
+                              context, MyRoutes.signUpRoute);
                           setState(() {
                             changeButton = false;
                           });
@@ -136,7 +168,8 @@ class _LoginState extends State<Login> {
                                 ),
                           decoration: BoxDecoration(
                               color: Colors.pink,
-                              borderRadius: BorderRadius.circular(changeButton? 50: 8.0)),
+                              borderRadius: BorderRadius.circular(
+                                  changeButton ? 50 : 8.0)),
                         ),
                       ),
                     ],
@@ -153,7 +186,8 @@ class _LoginState extends State<Login> {
                             changeButton = true;
                           });
                           await Future.delayed(Duration(seconds: 1));
-                          await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                          await Navigator.pushNamed(
+                              context, MyRoutes.homeRoute);
                           setState(() {
                             changeButton = false;
                           });
@@ -163,7 +197,10 @@ class _LoginState extends State<Login> {
                           height: 40.0,
                           width: changeButton ? 50.0 : 100.0,
                           child: changeButton
-                              ? Icon(Icons.done, color: Colors.white,)
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
                               : Text(
                                   'Skip',
                                   style: TextStyle(
@@ -173,7 +210,8 @@ class _LoginState extends State<Login> {
                                 ),
                           decoration: BoxDecoration(
                               color: Colors.pink,
-                              borderRadius: BorderRadius.circular(changeButton? 50: 8.0)),
+                              borderRadius: BorderRadius.circular(
+                                  changeButton ? 50 : 8.0)),
                         ),
                       ),
                     ],
