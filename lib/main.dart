@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petshop/screen/product.dart';
 import 'package:petshop/screen/signup.dart';
 import 'package:petshop/utils/fire_auth.dart';
 import 'package:provider/provider.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.homeRoute: (context) => HomeScreen(),
           MyRoutes.loginRoute: (context) => Login(),
           MyRoutes.signUpRoute: (context) => SignUp(),
+          MyRoutes.productsRoute: (context) => Product(),
         },
       ),
     );
