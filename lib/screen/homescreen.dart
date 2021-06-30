@@ -55,41 +55,45 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_user == 'Sign in') {
-                        Navigator.pushNamed(context, MyRoutes.loginRoute);
-                      } else {
-                        context.read<FireAuth>().signOut();
-                      }
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '$_user',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://images.pexels.com/photos/1629781/pexels-photo-1629781.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-                                fit: BoxFit.fill),
+                  Material(
+                    elevation: 20,
+                    borderRadius: BorderRadius.circular(30),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(30),
+                      onTap: () {
+                        if (_user == 'Sign in') {
+                          Navigator.pushNamed(context, MyRoutes.loginRoute);
+                        } else {
+                          context.read<FireAuth>().signOut();
+                        }
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Text(
+                              '$_user',
+                              style: TextStyle(color: Colors.black),
+                              textAlign: TextAlign.left,
+                            ),
                           ),
-                        )
-                      ],
+                          SizedBox(width: 10),
+                          Container(
+                            height: 35,
+                            width: 35,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey,
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://images.pexels.com/photos/1629781/pexels-photo-1629781.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+                                  fit: BoxFit.cover),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                        elevation: 5,
-                        shadowColor: Colors.grey,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        primary: Colors.white),
                   )
                 ],
               ),
