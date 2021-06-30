@@ -32,7 +32,10 @@ class Product extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: InkWell(
-                      child: Icon(Icons.arrow_back),
+                      child: Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                      ),
                       onTap: () {
                         Navigator.pop(context);
                       },
