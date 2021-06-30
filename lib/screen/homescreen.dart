@@ -114,13 +114,16 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: size.height * 0.065,
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.only(left: 20, right: 10),
                   child: TextField(
                     textAlignVertical: TextAlignVertical.center,
                     decoration: InputDecoration(
                       hintText: 'Search',
                       hintStyle: TextStyle(color: Colors.black26),
-                      suffixIcon: FaIcon(FontAwesomeIcons.search),
+                      suffixIcon: IconButton(
+                        onPressed: () {},
+                        icon: FaIcon(FontAwesomeIcons.search),
+                      ),
                       border: InputBorder.none,
                     ),
                   ),
