@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Product extends StatelessWidget {
+class Product extends StatefulWidget {
   const Product({Key? key}) : super(key: key);
+
+  @override
+  _ProductState createState() => _ProductState();
+}
+
+class _ProductState extends State<Product> {
+  bool _liked = false;
+
+  void _isLiked() {
+    if (_liked) {
+      _liked = false;
+    } else {
+      _liked = true;
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -173,8 +189,13 @@ class Product extends StatelessWidget {
                     BoxDecoration(color: Colors.pink, shape: BoxShape.circle),
                 child: Center(
                   child: InkWell(
+                    onTap: () {
+                      _isLiked();
+                    },
                     child: FaIcon(
-                      FontAwesomeIcons.heart,
+                      _liked == true
+                          ? FontAwesomeIcons.solidHeart
+                          : FontAwesomeIcons.heart,
                       color: Colors.white,
                     ),
                   ),

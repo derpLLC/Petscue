@@ -5,7 +5,23 @@ import 'package:petshop/utils/fire_auth.dart';
 import 'package:petshop/utils/routes.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool _liked = false;
+
+  void _isLiked() {
+    if (_liked) {
+      _liked = false;
+    } else {
+      _liked = true;
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
@@ -229,8 +245,13 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.white, shape: BoxShape.circle),
                     child: Center(
                       child: InkWell(
+                        onTap: () {
+                          _isLiked();
+                        },
                         child: FaIcon(
-                          FontAwesomeIcons.heart,
+                          _liked == true
+                              ? FontAwesomeIcons.solidHeart
+                              : FontAwesomeIcons.heart,
                           color: Colors.red,
                         ),
                       ),
