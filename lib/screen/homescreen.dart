@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:petshop/utils/fire_auth.dart';
@@ -7,7 +8,17 @@ import 'package:provider/provider.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final _firebaseUser = context.watch<User?>();
+    final String? _user;
+
+    if (_firebaseUser?.displayName != null) {
+      _user = _firebaseUser?.displayName;
+    } else {
+      _user = 'Sign in';
+    }
+
     var size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -36,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Sign Out',
+                          '$_user',
                           style: TextStyle(color: Colors.black),
                         ),
                         Container(
