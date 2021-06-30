@@ -204,12 +204,20 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  IconButton(
-                    onPressed: () => {},
-                    icon: FaIcon(FontAwesomeIcons.heart),
-                    color: Colors.white,
-                    iconSize: 30,
-                  )
+                  Container(
+                    height: size.height * 0.06,
+                    width: size.width * 0.2,
+                    decoration: BoxDecoration(
+                        color: Colors.white, shape: BoxShape.circle),
+                    child: Center(
+                      child: InkWell(
+                        child: FaIcon(
+                          FontAwesomeIcons.heart,
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
