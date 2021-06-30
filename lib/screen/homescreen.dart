@@ -41,7 +41,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      context.read<FireAuth>().signOut();
+                      if (_user == 'Sign in') {
+                        Navigator.pushNamed(context, MyRoutes.loginRoute);
+                      } else {
+                        context.read<FireAuth>().signOut();
+                      }
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
