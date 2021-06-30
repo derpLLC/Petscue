@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:petshop/utils/fire_auth.dart';
+import 'package:petshop/utils/routes.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -146,118 +147,78 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 20),
               Container(
                 height: size.height * 0.4,
-                child: ListView(
+                child: ListView.builder(
+                  itemBuilder: _cardsWidget,
+                  itemCount: 2,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Card(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  'https://images.pexels.com/photos/4588435/pexels-photo-4588435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-                            ),
-                            borderRadius: BorderRadius.circular(20)),
-                        width: size.width * 0.7,
-                        child: Container(
-                          padding:
-                              EdgeInsets.only(top: 20, left: 20, right: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'Lucy',
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    Text(
-                                      '799\$',
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.white),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              IconButton(
-                                onPressed: () => {},
-                                icon: FaIcon(FontAwesomeIcons.heart),
-                                color: Colors.white,
-                                iconSize: 30,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Card(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  'https://images.pexels.com/photos/4588435/pexels-photo-4588435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-                            ),
-                            borderRadius: BorderRadius.circular(20)),
-                        width: size.width * 0.7,
-                        child: Container(
-                          padding:
-                              EdgeInsets.only(top: 20, left: 20, right: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'Lucy',
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    Text(
-                                      '799\$',
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.white),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              IconButton(
-                                onPressed: () => {},
-                                icon: FaIcon(FontAwesomeIcons.heart),
-                                color: Colors.white,
-                                iconSize: 30,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               )
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _cardsWidget(BuildContext context, int) {
+    final size = MediaQuery.of(context).size;
+    return Container(
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, MyRoutes.productsRoute);
+        },
+        child: Card(
+          child: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      'https://images.pexels.com/photos/4588435/pexels-photo-4588435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                ),
+                borderRadius: BorderRadius.circular(20)),
+            width: size.width * 0.7,
+            child: Container(
+              padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Text(
+                          'Lucy',
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          '799\$',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => {},
+                    icon: FaIcon(FontAwesomeIcons.heart),
+                    color: Colors.white,
+                    iconSize: 30,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      //   SizedBox(
+      //     width: 30,
+      //   ),
     );
   }
 }
