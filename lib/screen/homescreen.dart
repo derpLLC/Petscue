@@ -11,17 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _liked = false;
-
-  void _isLiked() {
-    if (_liked) {
-      _liked = false;
-    } else {
-      _liked = true;
-    }
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
@@ -242,25 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    height: size.height * 0.06,
-                    width: size.width * 0.2,
-                    decoration: BoxDecoration(
-                        color: Colors.white, shape: BoxShape.circle),
-                    child: Center(
-                      child: InkWell(
-                        onTap: () {
-                          _isLiked();
-                        },
-                        child: FaIcon(
-                          _liked == true
-                              ? FontAwesomeIcons.solidHeart
-                              : FontAwesomeIcons.heart,
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  _LikeButton()
                 ],
               ),
             ),
@@ -270,6 +241,49 @@ class _HomeScreenState extends State<HomeScreen> {
       //   SizedBox(
       //     width: 30,
       //   ),
+    );
+  }
+}
+
+class _LikeButton extends StatefulWidget {
+  const _LikeButton({Key? key}) : super(key: key);
+
+  @override
+  _LikeButtonState createState() => _LikeButtonState();
+}
+
+class _LikeButtonState extends State<_LikeButton> {
+  bool _liked = false;
+
+  void _isLiked() {
+    if (_liked) {
+      _liked = false;
+    } else {
+      _liked = true;
+    }
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      height: size.height * 0.06,
+      width: size.width * 0.2,
+      decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+      child: Center(
+        child: InkWell(
+          onTap: () {
+            _isLiked();
+          },
+          child: FaIcon(
+            _liked == true
+                ? FontAwesomeIcons.solidHeart
+                : FontAwesomeIcons.heart,
+            color: Colors.red,
+          ),
+        ),
+      ),
     );
   }
 }
