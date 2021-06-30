@@ -11,7 +11,9 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   String name = "";
-  bool changeButton = false;
+  bool loginButton = false;
+  bool signUpButton = false;
+  bool skipButton = false;
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -75,7 +77,7 @@ class _LoginState extends State<Login> {
                       InkWell(
                         onTap: () async {
                           setState(() {
-                            changeButton = true;
+                            loginButton = true;
                           });
                           if (_emailController.text.isEmpty &&
                               _passwordController.text.isEmpty) {
@@ -100,21 +102,21 @@ class _LoginState extends State<Login> {
                                   email: _emailController.text.trim(),
                                   password: _passwordController.text.trim(),
                                 );
-                            await Future.delayed((Duration(seconds: 1)));
+                            await Future.delayed((Duration(milliseconds: 500)));
                             setState(() {
-                              changeButton = false;
+                              loginButton = false;
                             });
                           }
                           setState(() {
-                            changeButton = false;
+                            loginButton = false;
                           });
                         },
                         child: AnimatedContainer(
-                          duration: Duration(seconds: 1),
+                          duration: Duration(milliseconds: 500),
                           alignment: Alignment.center,
                           height: 40.0,
-                          width: changeButton ? 50 : 100,
-                          child: changeButton
+                          width: loginButton ? 50 : 100,
+                          child: loginButton
                               ? Icon(
                                   Icons.done,
                                   color: Colors.white,
@@ -130,7 +132,7 @@ class _LoginState extends State<Login> {
                           decoration: BoxDecoration(
                             color: Colors.pink,
                             borderRadius:
-                                BorderRadius.circular(changeButton ? 50 : 8.0),
+                                BorderRadius.circular(loginButton ? 50 : 8.0),
                           ),
                         ),
                       ),
@@ -140,21 +142,21 @@ class _LoginState extends State<Login> {
                       InkWell(
                         onTap: () async {
                           setState(() {
-                            changeButton = true;
+                            signUpButton = true;
                           });
-                          await Future.delayed((Duration(seconds: 1)));
+                          await Future.delayed((Duration(milliseconds: 500)));
                           await Navigator.pushNamed(
                               context, MyRoutes.signUpRoute);
                           setState(() {
-                            changeButton = false;
+                            signUpButton = false;
                           });
                         },
                         child: AnimatedContainer(
-                          duration: Duration(seconds: 1),
+                          duration: Duration(milliseconds: 500),
                           alignment: Alignment.center,
                           height: 40.0,
-                          width: changeButton ? 50 : 100,
-                          child: changeButton
+                          width: signUpButton ? 50 : 100,
+                          child: signUpButton
                               ? Icon(
                                   Icons.done,
                                   color: Colors.white,
@@ -169,7 +171,7 @@ class _LoginState extends State<Login> {
                           decoration: BoxDecoration(
                               color: Colors.pink,
                               borderRadius: BorderRadius.circular(
-                                  changeButton ? 50 : 8.0)),
+                                  signUpButton ? 50 : 8.0)),
                         ),
                       ),
                     ],
@@ -183,20 +185,21 @@ class _LoginState extends State<Login> {
                       InkWell(
                         onTap: () async {
                           setState(() {
-                            changeButton = true;
+                            skipButton = true;
                           });
-                          await Future.delayed(Duration(seconds: 1));
+                          await Future.delayed(Duration(milliseconds: 500));
                           await Navigator.pushNamed(
                               context, MyRoutes.homeRoute);
                           setState(() {
-                            changeButton = false;
+                            skipButton = false;
                           });
                         },
-                        child: Container(
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 500),
                           alignment: Alignment.center,
                           height: 40.0,
-                          width: changeButton ? 50.0 : 100.0,
-                          child: changeButton
+                          width: skipButton ? 50 : 100,
+                          child: skipButton
                               ? Icon(
                                   Icons.done,
                                   color: Colors.white,
@@ -210,8 +213,8 @@ class _LoginState extends State<Login> {
                                 ),
                           decoration: BoxDecoration(
                               color: Colors.pink,
-                              borderRadius: BorderRadius.circular(
-                                  changeButton ? 50 : 8.0)),
+                              borderRadius:
+                                  BorderRadius.circular(skipButton ? 50 : 8.0)),
                         ),
                       ),
                     ],
