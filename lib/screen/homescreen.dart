@@ -11,8 +11,8 @@ class HomeScreen extends StatelessWidget {
     final _firebaseUser = context.watch<User?>();
     final String? _user;
 
-    if (_firebaseUser?.displayName != null) {
-      _user = _firebaseUser?.displayName;
+    if (_firebaseUser?.email != null) {
+      _user = _firebaseUser?.email.toString();
     } else {
       _user = 'Sign in';
     }
