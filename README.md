@@ -5,9 +5,20 @@ Petshop is a cross platform application and marketplace where people can buy or 
 > *Note*: FlutterFire is still under development and some features, functionality might not be available yet.
 [Feedback](https://github.com/FirebaseExtended/flutterfire/issues) and [Pull Requests](https://github.com/FirebaseExtended/flutterfire/pulls) are most welcome!
 
+## Screenshots
+
+<p align="center">
+  <img width="32%" src="assets/screenshots/login.png?raw=true">
+  <img width="32%" src="assets/screenshots/signup.png?raw=true">
+  <img width="32%" src="assets/screenshots/homescreen.png?raw=true">
+  <img width="32%" src="assets/screenshots/details.png?raw=true">
+
+</p>
+
 ## Plugins
 
 **Table of contents:**
+The libraries that this app is using as of now:
 
 - [Font Awesome Icons (`font_awesome_flutter`)](https://pub.dev/packages/font_awesome_flutter)
 - [Google Fonts (`google_fonts`)](https://pub.dev/packages/google_fonts)
@@ -24,15 +35,6 @@ Petshop is a cross platform application and marketplace where people can buy or 
 
 ----
 
-## Screenshots
-
-<p align="center">
-  <img width="32%" src="assets/screenshots/login.png?raw=true">
-  <img width="32%" src="assets/screenshots/signup.png?raw=true">
-  <img width="32%" src="assets/screenshots/homescreen.png?raw=true">
-  <img width="32%" src="assets/screenshots/details.png?raw=true">
-
-</p>
 
 ## Issues
 
