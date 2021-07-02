@@ -187,6 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      drawerEdgeDragWidth: size.width * 0.5,
       drawer: Drawer(
         child: ListView(
           children: [
