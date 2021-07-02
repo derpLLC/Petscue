@@ -198,9 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: Container(child: Center(child: Text('Hello, $_user!'))),
               onTap: () {},
             ),
-            ListTile(
-              title: Divider(),
-            ),
+            Divider(),
             ListTile(
               title: Text('Home'),
               onTap: () {},
