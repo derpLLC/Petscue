@@ -1,16 +1,36 @@
-# petshop
+# Petshop
 
-A one stop shop for your pet.
+Petshop is a cross platform application and marketplace where people can buy or adopt pets from other users effortlessly.
 
-## Getting Started
+> *Note*: FlutterFire is still under development and some features, functionality might not be available yet.
+[Feedback](https://github.com/FirebaseExtended/flutterfire/issues) and [Pull Requests](https://github.com/FirebaseExtended/flutterfire/pulls) are most welcome!
 
-This project is a starting point for a Flutter application.
+## Plugins
 
-A few resources to get you started if this is your first Flutter project:
+**Table of contents:**
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Font Awesome Icons (`font_awesome_flutter`)](https://pub.dev/packages/font_awesome_flutter)
+- [Google Fonts (`google_fonts`)](https://pub.dev/packages/google_fonts)
+- [Firebase Auth (`firebase_auth`)](https://pub.dev/packages/firebase_auth)
+- [Firebase Core (`firebase_core`)](https://pub.dev/packages/firebase_core)
+- [Provider (`provider`)](https://pub.dev/packages/provider)
+---
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Platform Support
+
+| Android | iOS | MacOS | Web |
+|:-------:|:---:|:-----:|:---:|
+|    ✔️    |  ✔️  |       |     |
+
+----
+
+## Screenshots
+
+![Login]()
+![Signup]()
+![Homescreen]()
+![Details Page]()
+
+## Issues
+
+Please file issues, bugs, or feature requests in our [issue tracker](https://github.com/derpLLC/super-octo-fiesta/issues/new/choose).
