@@ -15,11 +15,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
     final String? _user;
+    bool _isSignedIn;
 
     if (_firebaseUser?.email != null) {
       _user = _firebaseUser?.email.toString();
+      _isSignedIn = true;
     } else {
       _user = 'Sign in';
+      _isSignedIn = false;
     }
 
     var size = MediaQuery.of(context).size;
@@ -51,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(30),
                         onTap: () {
-                          if (_user == 'Sign in') {
+                          if (!_isSignedIn) {
                             Navigator.pushNamed(context, MyRoutes.loginRoute);
                           } else {
                             context.read<FireAuth>().signOut();
@@ -63,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                '$_user',
+                                _isSignedIn ? '$_user' : '$_user',
                                 style: TextStyle(color: Colors.black),
                                 textAlign: TextAlign.left,
                               ),
@@ -192,6 +195,13 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           children: [
             ListTile(
+              title: Container(child: Center(child: Text('Hello, $_user!'))),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Divider(),
+            ),
+            ListTile(
               title: Text('Home'),
               onTap: () {},
             ),
@@ -218,6 +228,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(
               title: Text('About Us'),
               onTap: () {},
+            ),
+            ListTile(
+              title: Text(_isSignedIn ? 'Logout' : 'Sign In'),
+              onTap: () {
+                _isSignedIn
+                    ? context.read<FireAuth>().signOut()
+                    : Navigator.pushNamed(context, MyRoutes.loginRoute);
+              },
             ),
           ],
         ),
