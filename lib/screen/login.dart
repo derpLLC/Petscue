@@ -103,6 +103,8 @@ class _LoginState extends State<Login> {
                                   password: _passwordController.text.trim(),
                                 );
                             await Future.delayed((Duration(milliseconds: 500)));
+                            await Navigator.pushNamed(
+                                context, MyRoutes.homeRoute);
                             setState(() {
                               loginButton = false;
                             });
