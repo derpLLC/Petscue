@@ -26,10 +26,10 @@ Petshop is a cross platform application and marketplace where people can buy or 
 
 ## Screenshots
 
-![Login]()
-![Signup]()
-![Homescreen]()
-![Details Page]()
+![Login](https://github.com/derpLLC/super-octo-fiesta/blob/main/assets/screenshots/login.png)
+![Signup](https://github.com/derpLLC/super-octo-fiesta/blob/main/assets/screenshots/signup.png)
+![Homescreen](https://github.com/derpLLC/super-octo-fiesta/blob/main/assets/screenshots/homescreen.png)
+![Details Page](https://github.com/derpLLC/super-octo-fiesta/blob/main/assets/screenshots/details.png)
 
 ## Issues
 
