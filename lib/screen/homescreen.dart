@@ -140,6 +140,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
                     height: size.height * 0.065,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: MediaQuery.of(context).platformBrightness ==
+                                    Brightness.dark
+                                ? Colors.white
+                                : Colors.transparent),
+                        borderRadius: BorderRadius.circular(20)),
                     padding: EdgeInsets.only(left: 20, right: 10),
                     child: TextField(
                       textAlignVertical: TextAlignVertical.center,
@@ -178,7 +185,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.builder(
                     itemBuilder: _cardsWidget,
                     itemCount: 2,
-                    shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                   ),
                 )
@@ -240,50 +246,52 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _cardsWidget(BuildContext context, int) {
     final size = MediaQuery.of(context).size;
-    return Container(
-      child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(context, MyRoutes.productsRoute);
-        },
-        child: Card(
-          child: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                      'https://images.pexels.com/photos/4588435/pexels-photo-4588435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-                ),
-                borderRadius: BorderRadius.circular(20)),
-            width: size.width * 0.7,
-            child: Container(
-              padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Text(
-                          'Lucy',
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          '799\$',
-                          style: TextStyle(fontSize: 20, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ),
-                  _LikeButton()
-                ],
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: () {
+        Navigator.pushNamed(context, MyRoutes.productsRoute);
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    'https://images.pexels.com/photos/4588435/pexels-photo-4588435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
               ),
+              borderRadius: BorderRadius.circular(20)),
+          width: size.width * 0.7,
+          child: Container(
+            padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Lucy',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        '799\$',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+                _LikeButton()
+              ],
             ),
           ),
         ),

@@ -6,6 +6,7 @@ class AppTheme {
         fontFamily: GoogleFonts.montserrat().fontFamily,
         canvasColor: creamColor,
         primarySwatch: Colors.pink,
+        bottomAppBarColor: Colors.transparent,
       );
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
@@ -13,6 +14,7 @@ class AppTheme {
         primaryColor: Colors.pink,
         canvasColor: canvasColor,
         brightness: Brightness.dark,
+        bottomAppBarColor: Colors.transparent,
       );
 }
 

@@ -173,7 +173,12 @@ class _ProductState extends State<Product> {
                     },
                     child: Text(
                       'Buy Now',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: MediaQuery.of(context).platformBrightness ==
+                                  Brightness.dark
+                              ? Colors.black
+                              : Colors.black),
                     ),
                   ),
                 ),
