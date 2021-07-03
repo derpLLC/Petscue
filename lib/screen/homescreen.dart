@@ -145,7 +145,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       textAlignVertical: TextAlignVertical.center,
                       decoration: InputDecoration(
                         hintText: 'Search',
-                        hintStyle: TextStyle(color: Colors.black26),
                         suffixIcon: IconButton(
                           onPressed: () {},
                           icon: FaIcon(FontAwesomeIcons.search),
