@@ -11,7 +11,7 @@ class AppTheme {
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         fontFamily: GoogleFonts.montserrat().fontFamily,
         primaryColor: Colors.pink,
-        canvasColor: canvasColor ,
+        canvasColor: canvasColor,
         brightness: Brightness.dark,
       );
 }

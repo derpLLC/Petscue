@@ -66,7 +66,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
                                 _isSignedIn ? '$_user' : '$_user',
-                                style: TextStyle(color: Colors.black),
                                 textAlign: TextAlign.left,
                               ),
                             ),
