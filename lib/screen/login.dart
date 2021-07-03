@@ -4,6 +4,9 @@ import 'package:petshop/utils/fire_auth.dart';
 import 'package:petshop/utils/routes.dart';
 import 'package:provider/provider.dart';
 
+import '../themes.dart';
+
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -24,7 +27,6 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           children: [

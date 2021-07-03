@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:petshop/screen/product.dart';
 import 'package:petshop/screen/signup.dart';
+import 'package:petshop/themes.dart';
 import 'package:petshop/utils/fire_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -32,11 +32,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
-        theme: ThemeData(
-          fontFamily: GoogleFonts.montserrat().fontFamily,
-          primarySwatch: Colors.pink,
-        ),
+        themeMode: ThemeMode.dark,
+        theme: AppTheme.lightTheme(context),
+        darkTheme: AppTheme.darkTheme(context),
         initialRoute: "/",
         routes: {
           "/": (context) => FireAuthWrapper(),

@@ -28,7 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Builder(
         builder: (context) => SingleChildScrollView(
           child: Container(
