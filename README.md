@@ -15,6 +15,16 @@ Petshop is a cross platform application and marketplace where people can buy or 
 
 </p>
 
+### Dark Theme
+<p align="center">
+  <img width="32%" src="assets/screenshots/dark_login.png?raw=true">
+  <img width="32%" src="assets/screenshots/dark_signup.png?raw=true">
+  <img width="32%" src="assets/screenshots/dark_homescreen.png?raw=true">
+  <img width="32%" src="assets/screenshots/dark_details.png?raw=true">
+  <img width="32%" src="assets/screenshots/dark_drawer.png?raw=true">
+
+</p>
+
 ## Plugins
 
 **Table of contents:**
