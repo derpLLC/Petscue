@@ -7,6 +7,7 @@ Petscue is a cross platform application and marketplace where people can buy or 
 
 ## Screenshots
 
+### Light Theme
 <p align="center">
   <img width="32%" src="assets/screenshots/login.png?raw=true">
   <img width="32%" src="assets/screenshots/signup.png?raw=true">
@@ -63,7 +64,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd super-octo-fiesta
+  cd Petscue
 ```
 
 Run the app
