@@ -57,7 +57,7 @@ Then run the following commands
 Clone the project
 
 ```bash
-  git clone https://github.com/derpLLC/super-octo-fiesta
+  git clone https://github.com/derpLLC/Petscue
 ```
 
 Go to the project directory
