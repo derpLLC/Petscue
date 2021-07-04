@@ -12,6 +12,8 @@ Petscue is a cross platform application and marketplace where people can buy or 
   <img width="32%" src="assets/screenshots/signup.png?raw=true">
   <img width="32%" src="assets/screenshots/homescreen.png?raw=true">
   <img width="32%" src="assets/screenshots/details.png?raw=true">
+  <img width="32%" src="assets/screenshots/drawer.png?raw=true">
+  <img width="32%" src="assets/screenshots/favourite.png.png?raw=true">
 
 </p>
 
@@ -22,6 +24,7 @@ Petscue is a cross platform application and marketplace where people can buy or 
   <img width="32%" src="assets/screenshots/dark_homescreen.png?raw=true">
   <img width="32%" src="assets/screenshots/dark_details.png?raw=true">
   <img width="32%" src="assets/screenshots/dark_drawer.png?raw=true">
+  <img width="32%" src="assets/screenshots/dark_favourite.png?raw=true">
 
 </p>
 
