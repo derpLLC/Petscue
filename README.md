@@ -1,8 +1,8 @@
-# Petshop
+# Petscue
 
-Petshop is a cross platform application and marketplace where people can buy or adopt pets from other users effortlessly.
+Petscue is a cross platform application and marketplace where people can buy or adopt pets from other users effortlessly.
 
-> *Note*: FlutterFire is still under development and some features, functionality might not be available yet.
+> *Note*: Petscue is still under development and some features, functionality might not be available yet.
 [Feedback](https://github.com/FirebaseExtended/flutterfire/issues) and [Pull Requests](https://github.com/FirebaseExtended/flutterfire/pulls) are most welcome!
 
 ## Screenshots
