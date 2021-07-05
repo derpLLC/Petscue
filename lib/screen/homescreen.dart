@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:petshop/utils/fire_auth.dart';
-import 'package:petshop/utils/routes.dart';
+import 'package:petscue/utils/fire_auth.dart';
+import 'package:petscue/utils/routes.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:petshop/utils/fire_auth.dart';
-import 'package:petshop/utils/routes.dart';
+import 'package:petscue/utils/fire_auth.dart';
+import 'package:petscue/utils/routes.dart';
 import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {

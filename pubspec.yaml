@@ -1,4 +1,4 @@
-name: petshop
+name: petscue
 description: A one stop shop for your pet.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1

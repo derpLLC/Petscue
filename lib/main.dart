@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:petshop/screen/product.dart';
-import 'package:petshop/screen/signup.dart';
-import 'package:petshop/themes.dart';
-import 'package:petshop/utils/fire_auth.dart';
+import 'package:petscue/screen/product.dart';
+import 'package:petscue/screen/signup.dart';
+import 'package:petscue/themes.dart';
+import 'package:petscue/utils/fire_auth.dart';
 import 'package:provider/provider.dart';
 
 import 'screen/homescreen.dart';
