@@ -1,4 +1,4 @@
-package com.deprCo.shop.pet.petshop
+package com.derpllc.petscue
 
 import io.flutter.embedding.android.FlutterActivity
 
