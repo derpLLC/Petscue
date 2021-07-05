@@ -45,7 +45,7 @@ The libraries that this app is using as of now:
 
 | Android | iOS | MacOS | Web |
 |:-------:|:---:|:-----:|:---:|
-|    ✔️    |  ✔️  |       |     |
+|    ✔️    |  ✔️  |       |  ✔️  |
 
 ----
 
