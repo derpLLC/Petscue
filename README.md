@@ -29,6 +29,13 @@ Petscue is a cross platform application and marketplace where people can buy or 
 
 </p>
 
+## App Demo
+
+<p align="center">
+  <img width="50%" src="assets/screenshots/demo.gif?raw=true">
+</p>
+
+
 ## Plugins
 
 **Table of contents:**
