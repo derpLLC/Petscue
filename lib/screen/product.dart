@@ -169,7 +169,11 @@ class _ProductState extends State<Product> {
                 child: Center(
                   child: InkWell(
                     onTap: () {
-                      print('Buy Now');
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Buying not supported yet"),
+                        ),
+                      );
                     },
                     child: Text(
                       'Buy Now',
