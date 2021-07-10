@@ -5,15 +5,18 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:petscue/main.dart';
+import 'package:petscue/app/view/app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    final authenticationRepository = AuthenticationRepository();
+    await authenticationRepository.user.first;
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester
+        .pumpWidget(MyApp(authenticationRepository: authenticationRepository));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -1,31 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:petscue/utils/fire_auth.dart';
-import 'package:petscue/utils/routes.dart';
-import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-class _HomeScreenState extends State<HomeScreen> {
+  static Page page() => const MaterialPage<void>(child: HomePage());
+
   @override
   Widget build(BuildContext context) {
-    final _firebaseUser = context.watch<User?>();
-    final String? _user;
-    bool _isSignedIn;
-
-    if (_firebaseUser?.email != null) {
-      _user = _firebaseUser?.email.toString();
-      _isSignedIn = true;
-    } else {
-      _user = 'Sign in';
-      _isSignedIn = false;
-    }
-
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       body: Builder(
@@ -52,20 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(30),
                       child: InkWell(
                         borderRadius: BorderRadius.circular(30),
-                        onTap: () {
-                          if (!_isSignedIn) {
-                            Navigator.pushNamed(context, MyRoutes.loginRoute);
-                          } else {
-                            context.read<FireAuth>().signOut();
-                          }
-                        },
+                        onTap: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                _isSignedIn ? '$_user' : '$_user',
+                                'Username',
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -180,14 +157,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Container(
-                  height: size.height * 0.4,
-                  child: ListView.builder(
-                    itemBuilder: _cardsWidget,
-                    itemCount: 2,
-                    scrollDirection: Axis.horizontal,
-                  ),
-                )
+                // Container(
+                //   height: size.height * 0.4,
+                //   child: ListView.builder(
+                //     itemBuilder: _cardsWidget,
+                //     itemCount: 2,
+                //     scrollDirection: Axis.horizontal,
+                //   ),
+                // )
               ],
             ),
           ),
@@ -198,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           children: [
             ListTile(
-              title: Container(child: Center(child: Text('Hello, $_user!'))),
+              title: Container(child: Center(child: Text('Hello, user!'))),
               onTap: () {},
             ),
             Divider(),
@@ -230,115 +207,116 @@ class _HomeScreenState extends State<HomeScreen> {
               title: Text('About Us'),
               onTap: () {},
             ),
-            ListTile(
-              title: Text(_isSignedIn ? 'Logout' : 'Sign In'),
-              onTap: () {
-                _isSignedIn
-                    ? context.read<FireAuth>().signOut()
-                    : Navigator.pushNamed(context, MyRoutes.loginRoute);
-              },
-            ),
+            // ListTile(
+            //   title: Text(_isSignedIn ? 'Logout' : 'Sign In'),
+            //   onTap: () {
+            //     _isSignedIn
+            //         ? context.read<FireAuth>().signOut()
+            //         : Navigator.pushNamed(context, MyRoutes.loginRoute);
+            //   },
+            // ),
           ],
         ),
       ),
     );
   }
-
-  Widget _cardsWidget(BuildContext context, int) {
-    final size = MediaQuery.of(context).size;
-    return InkWell(
-      borderRadius: BorderRadius.circular(20),
-      onTap: () {
-        Navigator.pushNamed(context, MyRoutes.productsRoute);
-      },
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    'https://images.pexels.com/photos/4588435/pexels-photo-4588435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-              ),
-              borderRadius: BorderRadius.circular(20)),
-          width: size.width * 0.7,
-          child: Container(
-            padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Lucy',
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        '799\$',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      )
-                    ],
-                  ),
-                ),
-                _LikeButton()
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 }
 
-class _LikeButton extends StatefulWidget {
-  const _LikeButton({Key? key}) : super(key: key);
+//   Widget _cardsWidget(BuildContext context, int) {
+//     final size = MediaQuery.of(context).size;
+//     return InkWell(
+//       borderRadius: BorderRadius.circular(20),
+//       onTap: () {
+//         Navigator.pushNamed(context, MyRoutes.productsRoute);
+//       },
+//       child: Card(
+//         shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(20),
+//         ),
+//         child: Container(
+//           decoration: BoxDecoration(
+//               image: DecorationImage(
+//                 fit: BoxFit.cover,
+//                 image: NetworkImage(
+//                     'https://images.pexels.com/photos/4588435/pexels-photo-4588435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+//               ),
+//               borderRadius: BorderRadius.circular(20)),
+//           width: size.width * 0.7,
+//           child: Container(
+//             padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Container(
+//                   child: Column(
+//                     children: [
+//                       Text(
+//                         'Lucy',
+//                         style: TextStyle(
+//                             fontSize: 25,
+//                             fontWeight: FontWeight.bold,
+//                             color: Colors.white),
+//                       ),
+//                       SizedBox(
+//                         height: 8,
+//                       ),
+//                       Text(
+//                         '799\$',
+//                         style: TextStyle(fontSize: 20, color: Colors.white),
+//                       )
+//                     ],
+//                   ),
+//                 ),
+//                 _LikeButton()
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
-  @override
-  _LikeButtonState createState() => _LikeButtonState();
-}
-
-class _LikeButtonState extends State<_LikeButton> {
-  bool _liked = false;
-
-  void _isLiked() {
-    if (_liked) {
-      _liked = false;
-    } else {
-      _liked = true;
-    }
-    setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height * 0.06,
-      width: size.width * 0.2,
-      decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-      child: Center(
-        child: InkWell(
-          onTap: () {
-            _isLiked();
-          },
-          child: FaIcon(
-            _liked == true
-                ? FontAwesomeIcons.solidHeart
-                : FontAwesomeIcons.heart,
-            color: Colors.red,
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class _LikeButton extends StatefulWidget {
+//   const _LikeButton({Key? key}) : super(key: key);
+//
+//   @override
+//   _LikeButtonState createState() => _LikeButtonState();
+// }
+//
+// class _LikeButtonState extends State<_LikeButton> {
+//   bool _liked = false;
+//
+//   void _isLiked() {
+//     if (_liked) {
+//       _liked = false;
+//     } else {
+//       _liked = true;
+//     }
+//     setState(() {});
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     var size = MediaQuery.of(context).size;
+//     return Container(
+//       height: size.height * 0.06,
+//       width: size.width * 0.2,
+//       decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+//       child: Center(
+//         child: InkWell(
+//           onTap: () {
+//             _isLiked();
+//           },
+//           child: FaIcon(
+//             _liked == true
+//                 ? FontAwesomeIcons.solidHeart
+//                 : FontAwesomeIcons.heart,
+//             color: Colors.red,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
